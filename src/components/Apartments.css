@@ -1,0 +1,106 @@
+.apartments {
+  position: relative;
+  z-index: 2;
+  border-radius: 32px 32px 0 0;
+  margin-top: -32px;
+  min-height: 100vh;
+  padding: 110px 6%;
+  background: #f8f6f2;
+  color: #171717;
+}
+
+.apartments-heading {
+  text-align: center;
+  max-width: 650px;
+  margin: 0 auto 55px;
+}
+
+.section-subtitle {
+  color: #a78652;
+  font-size: 12px;
+  letter-spacing: 3px;
+  font-weight: 600;
+}
+
+.apartments-heading h2 {
+  font-family: Georgia, serif;
+  font-size: clamp(2.3rem, 4vw, 3.8rem);
+  font-weight: 400;
+  margin: 15px 0;
+}
+
+.apartments-heading p {
+  color: #666;
+  line-height: 1.8;
+}
+
+.apartments-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 28px;
+}
+
+.apartment-card {
+  min-width: 0;
+}
+
+.apartment-image {
+  overflow: hidden;
+  aspect-ratio: 3 / 4;
+  background: #e7e1d7;
+}
+
+.apartment-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.apartment-card:hover img {
+  transform: scale(1.05);
+}
+
+.apartment-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  padding-top: 20px;
+}
+
+.apartment-info h3 {
+  font-family: Georgia, serif;
+  font-size: 22px;
+  font-weight: 400;
+  margin: 0;
+}
+
+.apartment-button {
+  background: transparent;
+  border: none;
+  color: #a78652;
+  font-size: 14px;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.apartment-button:hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 900px) {
+  .apartments-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 600px) {
+  .apartments {
+    padding: 75px 5%;
+  }
+
+  .apartments-grid {
+    grid-template-columns: 1fr;
+  }
+}
