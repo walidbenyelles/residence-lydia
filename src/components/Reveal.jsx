@@ -1,3 +1,4 @@
+
 import { useEffect, useRef, useState } from 'react'
 import './Reveal.css'
 
@@ -8,19 +9,18 @@ function Reveal({ children, delay = 0 }) {
   useEffect(() => {
     const element = elementRef.current
 
+    if (!element) return
+
     const observer = new IntersectionObserver(
       ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true)
-          observer.unobserve(entry.target)
-        }
+        setIsVisible(entry.isIntersecting)
       },
       {
         threshold: 0.1,
       }
     )
 
-    if (element) observer.observe(element)
+    observer.observe(element)
 
     return () => observer.disconnect()
   }, [])

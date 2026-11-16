@@ -1,0 +1,520 @@
+
+/* =====================================
+   TLEMCEN — GLOBAL
+===================================== */
+
+.tlemcen-section {
+  position: relative;
+  z-index: 3;
+  background: #181818;
+  color: #f8f6f2;
+}
+
+.tlemcen-container {
+  width: min(1200px, 100%);
+  margin: 0 auto;
+}
+
+/* =====================================
+   HERO PANORAMIQUE
+===================================== */
+
+.tlemcen-hero {
+  position: sticky;
+  top: 0;
+
+  display: flex;
+  align-items: center;
+
+  height: 100vh;
+  height: 100svh;
+  min-height: 520px;
+
+  overflow: hidden;
+
+  background-image: url('/images/tlemcen/panorama.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.tlemcen-hero-shade {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(
+      90deg,
+      rgba(10, 10, 10, 0.78) 0%,
+      rgba(10, 10, 10, 0.48) 50%,
+      rgba(10, 10, 10, 0.18) 100%
+    ),
+    linear-gradient(
+      0deg,
+      rgba(10, 10, 10, 0.45),
+      transparent 35%
+    );
+  pointer-events: none;
+}
+
+.tlemcen-hero-content {
+  position: relative;
+  z-index: 1;
+  width: min(1200px, 88%);
+  margin: 0 auto;
+}
+
+.tlemcen-hero-text {
+  max-width: 850px;
+}
+
+.tlemcen-overline {
+  display: inline-block;
+  color: #d6b781;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 3.5px;
+}
+
+.tlemcen-hero h2 {
+  margin: 26px 0 28px;
+
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: clamp(48px, 7.5vw, 100px);
+  font-weight: 400;
+  line-height: 1.08;
+  letter-spacing: -2px;
+
+  color: #fff;
+}
+
+.tlemcen-hero h2 em {
+  color: #d6b781;
+  font-weight: 400;
+}
+
+.tlemcen-hero-text p {
+  max-width: 470px;
+  color: #e8e1d8;
+  font-size: 15px;
+  line-height: 1.9;
+}
+
+.tlemcen-hero-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 28px;
+
+  margin-top: 35px;
+  padding-bottom: 12px;
+
+  border-bottom: 1px solid #c5a46d;
+
+  color: #fff;
+  font-size: 13px;
+  letter-spacing: 0.7px;
+  text-decoration: none;
+
+  transition: color 0.3s ease;
+}
+
+.tlemcen-hero-link span {
+  color: #d6b781;
+  font-size: 23px;
+  transition: transform 0.3s ease;
+}
+
+.tlemcen-hero-link:hover {
+  color: #d6b781;
+}
+
+.tlemcen-hero-link:hover span {
+  transform: translateY(5px);
+}
+
+.tlemcen-hero-bottom {
+  position: absolute;
+  z-index: 1;
+  left: 6%;
+  right: 6%;
+  bottom: 30px;
+
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 10px;
+  letter-spacing: 2px;
+}
+
+/* =====================================
+   PLACES — SECTION OVERLAY
+===================================== */
+
+.tlemcen-places {
+  position: relative;
+  z-index: 2;
+
+  min-height: 100vh;
+
+  padding: 110px 6% 100px;
+  margin-top: -32px;
+
+  background: #181818;
+  border-radius: 32px 32px 0 0;
+
+  box-shadow:
+    0 -20px 65px rgba(0, 0, 0, 0.3);
+}
+
+/* =====================================
+   SECTION HEADING
+===================================== */
+
+.tlemcen-heading {
+  max-width: 760px;
+  margin: 0 auto 70px;
+  text-align: center;
+}
+
+.tlemcen-section-label {
+  color: #c5a46d;
+  font-size: 11px;
+  letter-spacing: 3px;
+  font-weight: 600;
+}
+
+.tlemcen-heading h2 {
+  margin: 24px 0;
+
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: clamp(40px, 5.5vw, 70px);
+  line-height: 1.15;
+  font-weight: 400;
+}
+
+.tlemcen-heading h2 em {
+  color: #c5a46d;
+  font-weight: 400;
+}
+
+.tlemcen-heading p {
+  max-width: 550px;
+  margin: 0 auto;
+
+  color: #b3ada4;
+  font-size: 15px;
+  line-height: 1.9;
+}
+
+/* =====================================
+   CARDS GRID
+===================================== */
+
+.tlemcen-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 55px 28px;
+}
+
+.tlemcen-card,
+.tourist-card {
+  min-width: 0;
+}
+
+.tourist-card {
+  height: 100%;
+}
+
+/* =====================================
+   CARD IMAGE
+===================================== */
+
+.tourist-card-media {
+  position: relative;
+  height: auto;
+  aspect-ratio: 4 / 3;
+
+  overflow: hidden;
+  border-radius: 10px;
+
+  background: #292621;
+}
+
+.tourist-card-media img {
+  display: block;
+
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+
+  transition: transform 0.7s ease;
+}
+
+.tourist-card:hover .tourist-card-media img {
+  transform: scale(1.06);
+}
+
+.tourist-card-number {
+  position: absolute;
+  top: 18px;
+  left: 20px;
+
+  color: #fff;
+  font-family: Georgia, serif;
+  font-size: 25px;
+
+  text-shadow: 0 1px 10px rgba(0,0,0,0.5);
+}
+
+/* =====================================
+   FALLBACK — NO PHOTO
+===================================== */
+
+.tourist-image-placeholder {
+  position: absolute;
+  inset: 0;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+
+  padding: 25px;
+
+  background:
+    radial-gradient(
+      circle at 75% 20%,
+      rgba(197, 164, 109, 0.15),
+      transparent 45%
+    ),
+    linear-gradient(135deg, #373027, #1d1c1b);
+
+  color: #c5a46d;
+  text-align: center;
+}
+
+.tourist-image-placeholder span {
+  font-size: 10px;
+  letter-spacing: 3px;
+}
+
+.tourist-image-placeholder strong {
+  font-family: Georgia, serif;
+  font-size: clamp(70px, 10vw, 120px);
+  font-weight: 400;
+  line-height: 1;
+  opacity: 0.35;
+}
+
+/* =====================================
+   CARD CONTENT
+===================================== */
+
+.tourist-card-info {
+  padding: 25px 4px;
+}
+
+.tourist-card-category {
+  color: #c5a46d;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 2px;
+}
+
+.tourist-card-info h3 {
+  margin: 13px 0;
+
+  font-family: Georgia, serif;
+  font-size: clamp(25px, 3vw, 34px);
+  font-weight: 400;
+  line-height: 1.2;
+
+  color: #fff;
+}
+
+.tourist-card-info p {
+  max-width: 470px;
+
+  color: #aaa49a;
+  font-size: 14px;
+  line-height: 1.85;
+}
+
+.tourist-card-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 25px;
+
+  margin-top: 25px;
+  padding-bottom: 10px;
+
+  border-bottom: 1px solid #c5a46d;
+
+  color: #fff;
+  font-size: 13px;
+  text-decoration: none;
+
+  transition: color 0.3s ease;
+}
+
+.tourist-card-link > span:last-child {
+  color: #c5a46d;
+  font-size: 20px;
+
+  transition: transform 0.3s ease;
+}
+
+.tourist-card-link:hover {
+  color: #c5a46d;
+}
+
+.tourist-card-link:hover > span:last-child {
+  transform: translate(4px, -4px);
+}
+
+/* =====================================
+   FINAL CALL TO ACTION
+===================================== */
+
+.tlemcen-ending {
+  margin-top: 110px;
+  padding: 75px 25px;
+
+  border-top: 1px solid #403a32;
+  text-align: center;
+}
+
+.tlemcen-ending > span {
+  color: #c5a46d;
+  font-size: 10px;
+  letter-spacing: 3px;
+}
+
+.tlemcen-ending h2 {
+  margin: 22px 0;
+
+  font-family: Georgia, serif;
+  font-size: clamp(34px, 5vw, 60px);
+  font-weight: 400;
+  line-height: 1.2;
+}
+
+.tlemcen-ending h2 em {
+  color: #c5a46d;
+  font-weight: 400;
+}
+
+.tlemcen-ending p {
+  max-width: 480px;
+  margin: 0 auto 30px;
+
+  color: #aaa49a;
+  font-size: 14px;
+  line-height: 1.8;
+}
+
+.tlemcen-ending a {
+  display: inline-flex;
+  align-items: center;
+  gap: 25px;
+
+  padding: 16px 25px;
+
+  border: 1px solid #c5a46d;
+  border-radius: 4px;
+
+  color: #fff;
+  font-size: 13px;
+  text-decoration: none;
+
+  transition:
+    background 0.3s ease,
+    color 0.3s ease;
+}
+
+.tlemcen-ending a:hover {
+  background: #c5a46d;
+  color: #181818;
+}
+
+/* =====================================
+   RESPONSIVE
+===================================== */
+
+@media (max-width: 768px) {
+  .tlemcen-hero {
+    background-position: 54% center;
+  }
+
+  .tlemcen-hero-content {
+    width: 88%;
+  }
+
+  .tlemcen-hero h2 {
+    font-size: clamp(43px, 9vw, 68px);
+    letter-spacing: -1px;
+  }
+
+  .tlemcen-places {
+    padding: 75px 20px;
+  }
+
+  .tlemcen-heading {
+    margin-bottom: 45px;
+  }
+
+  .tlemcen-grid {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+
+  .tlemcen-ending {
+    margin-top: 70px;
+    padding: 60px 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .tlemcen-hero {
+    background-position: 55% center;
+  }
+
+  .tlemcen-overline {
+    font-size: 10px;
+    letter-spacing: 2px;
+  }
+
+  .tlemcen-hero-text p {
+    font-size: 14px;
+  }
+
+  .tlemcen-hero-bottom {
+    font-size: 9px;
+  }
+
+  .tlemcen-hero-bottom span:last-child {
+    display: none;
+  }
+
+  .tourist-card-info {
+    padding: 20px 2px;
+  }
+}
+
+/* Accessibilité */
+
+@media (prefers-reduced-motion: reduce) {
+  .tourist-card-media img,
+  .tourist-card-link,
+  .tourist-card-link span,
+  .tlemcen-hero-link span,
+  .tlemcen-ending a {
+    transition: none;
+  }
+
+  .tourist-card:hover .tourist-card-media img {
+    transform: none;
+  }
+}

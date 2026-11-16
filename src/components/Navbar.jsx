@@ -9,10 +9,11 @@ function Navbar() {
       </a>
 
       <nav className="navbar-links">
-        <a href="/">Accueil</a>
-        <a href="#appartements">Appartements</a>
-        <a href="#contact">Contact</a>
-      </nav>
+  <a href="#accueil">Accueil</a>
+  <a href="#appartements">Appartements</a>
+  <a href="#tlemcen">Découvrir Tlemcen</a>
+  <a href="#contact">Contact</a>
+</nav>
 
       <button className="language-button">
         FR / EN
