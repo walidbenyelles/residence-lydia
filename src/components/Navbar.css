@@ -1,7 +1,7 @@
 
-/* =========================================
+/* ==========================
    NAVBAR — RÉSIDENCE LYDIA
-========================================= */
+========================== */
 
 .navbar {
   position: fixed;
@@ -9,161 +9,119 @@
   left: 0;
   width: 100%;
   height: 85px;
-  z-index: 100;
-
+  padding: 0 4%;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 20px;
-
-  padding: 0 35px;
-  box-sizing: border-box;
-
-  background: rgba(20, 20, 20, 0.96);
-  backdrop-filter: blur(15px);
-  -webkit-backdrop-filter: blur(15px);
-
-  border-bottom: 1px solid rgba(197, 164, 109, 0.2);
+  gap: 28px;
+  z-index: 100;
+  background: rgba(18, 18, 18, .92);
+  border-bottom: 1px solid rgba(197, 164, 109, .22);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
 }
 
-/* =========================================
-   LOGO À GAUCHE
-========================================= */
+/* Logo */
 
 .navbar-logo {
   display: flex;
   align-items: center;
-  justify-content: flex-start;
-
   gap: 12px;
   flex-shrink: 0;
-
-  margin-right: auto;
-
   text-decoration: none;
 }
-
-/* Image SVG */
 
 .navbar-logo-image {
   display: block;
   width: 55px;
   height: 55px;
-
   object-fit: contain;
-  flex-shrink: 0;
-
-  transition: transform 0.3s ease;
 }
-
-.navbar-logo:hover .navbar-logo-image {
-  transform: scale(1.05);
-}
-
-/* Texte du logo */
 
 .navbar-logo-text {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
   gap: 5px;
 }
 
 .navbar-logo-text span {
-  color: #c5a46d;
-
+  color: #f8f6f2;
   font-family: Georgia, serif;
-  font-size: 19px;
-  font-weight: 400;
-  letter-spacing: 1px;
-
+  font-size: 15px;
+  letter-spacing: 2px;
   white-space: nowrap;
 }
 
 .navbar-logo-text small {
-  color: #b8b0a3;
-
+  color: #c5a46d;
   font-size: 9px;
-  font-weight: 400;
+  font-weight: 500;
   letter-spacing: 2px;
-
-  white-space: nowrap;
 }
 
-/* =========================================
-   LIENS DE NAVIGATION
-========================================= */
+/* Navigation desktop */
 
 .navbar-links {
   display: flex;
   align-items: center;
   justify-content: center;
-
-  gap: 24px;
+  gap: clamp(13px, 1.8vw, 29px);
+  margin-left: auto;
 }
 
 .navbar-links a {
   position: relative;
-
-  color: #eee9e1;
-  font-size: 12px;
-  font-weight: 500;
-
+  color: #e9e5dc;
   text-decoration: none;
+  font-size: 12px;
+  font-weight: 400;
   white-space: nowrap;
+  transition: color .3s ease;
+}
 
-  transition: color 0.3s ease;
+.navbar-links a::after {
+  content: '';
+  position: absolute;
+  bottom: -9px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: #c5a46d;
+  transition: width .3s ease;
 }
 
 .navbar-links a:hover {
   color: #c5a46d;
 }
 
-/* Soulignement animé */
-
-.navbar-links a::after {
-  content: "";
-  position: absolute;
-
-  left: 0;
-  bottom: -8px;
-
-  width: 0;
-  height: 1px;
-
-  background: #c5a46d;
-
-  transition: width 0.3s ease;
-}
-
 .navbar-links a:hover::after {
   width: 100%;
 }
 
-/* =========================================
-   BOUTON DE LANGUE
-========================================= */
+/* Bouton de langue et menu */
+
+.navbar-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-shrink: 0;
+}
 
 .language-button {
-  flex-shrink: 0;
-
-  padding: 10px 15px;
-
+  min-width: 48px;
+  height: 38px;
+  padding: 0 10px;
   background: transparent;
-  border: 1px solid rgba(197, 164, 109, 0.5);
-  border-radius: 4px;
-
+  border: 1px solid rgba(197, 164, 109, .7);
+  border-radius: 3px;
   color: #c5a46d;
-
   font-size: 11px;
   font-weight: 600;
   letter-spacing: 1px;
-
   cursor: pointer;
-
   transition:
-    background 0.3s ease,
-    color 0.3s ease;
+    background .3s,
+    color .3s;
 }
 
 .language-button:hover {
@@ -171,141 +129,198 @@
   color: #171717;
 }
 
-/* =========================================
-   TABLETTE
-========================================= */
+.navbar-menu-toggle {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  padding: 0;
+  background: transparent;
+  border: 1px solid rgba(197, 164, 109, .55);
+  border-radius: 3px;
+  color: #c5a46d;
+  cursor: pointer;
+}
 
-@media (max-width: 1100px) {
+/* Menu mobile, caché sur ordinateur */
+
+.navbar-mobile-menu {
+  display: none;
+}
+
+/* ==========================
+   TABLETTE ET MOBILE
+========================== */
+
+@media (max-width: 900px) {
   .navbar {
+    height: 76px;
     padding: 0 20px;
-    gap: 12px;
-  }
-
-  .navbar-links {
-    gap: 14px;
-  }
-
-  .navbar-links a {
-    font-size: 11px;
   }
 
   .navbar-logo-image {
-    width: 45px;
-    height: 45px;
-  }
-
-  .navbar-logo-text span {
-    font-size: 16px;
-  }
-
-  .navbar-logo-text small {
-    font-size: 8px;
-    letter-spacing: 1px;
-  }
-}
-
-/* =========================================
-   MOBILE
-========================================= */
-
-@media (max-width: 800px) {
-  .navbar {
-    height: auto;
-    min-height: 75px;
-    padding: 12px 16px;
-
-    flex-wrap: wrap;
-    row-gap: 14px;
-  }
-
-  .navbar-logo {
-    margin-right: auto;
-    gap: 9px;
-  }
-
-  .navbar-logo-image {
-    width: 42px;
-    height: 42px;
-  }
-
-  .navbar-logo-text span {
-    font-size: 15px;
-    letter-spacing: 0.5px;
-  }
-
-  .navbar-logo-text small {
-    font-size: 8px;
-  }
-
-  .language-button {
-    padding: 8px 11px;
-    font-size: 10px;
-  }
-
-  .navbar-links {
-    order: 3;
-
-    width: 100%;
-    justify-content: flex-start;
-
-    gap: 22px;
-    overflow-x: auto;
-    scrollbar-width: none;
-
-    padding: 4px 0 8px;
-  }
-
-  .navbar-links::-webkit-scrollbar {
-    display: none;
-  }
-
-  .navbar-links a {
-    font-size: 12px;
-    flex-shrink: 0;
-  }
-}
-
-/* =========================================
-   PETITS ÉCRANS
-========================================= */
-
-@media (max-width: 400px) {
-  .navbar {
-    padding: 10px 12px;
-  }
-
-  .navbar-logo-image {
-    width: 36px;
-    height: 36px;
+    width: 47px;
+    height: 47px;
   }
 
   .navbar-logo-text span {
     font-size: 13px;
+    letter-spacing: 1.3px;
+  }
+
+  .navbar-logo-text small {
+    font-size: 8px;
+  }
+
+  .navbar-links {
+    display: none;
+  }
+
+  .navbar-menu-toggle {
+    display: flex;
+  }
+
+  /* Panneau déroulant */
+  .navbar-mobile-menu {
+    position: absolute;
+    display: block;
+    top: 76px;
+    left: 0;
+    width: 100%;
+    max-height: calc(100dvh - 76px);
+    overflow-y: auto;
+    background: #171717;
+    border-bottom: 1px solid rgba(197, 164, 109, .25);
+    box-shadow: 0 25px 45px rgba(0, 0, 0, .25);
+
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-14px);
+    pointer-events: none;
+
+    transition:
+      opacity .3s ease,
+      transform .3s ease,
+      visibility .3s ease;
+  }
+
+  .navbar-mobile-menu.is-open {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+    pointer-events: auto;
+  }
+
+  .navbar-mobile-inner {
+    max-width: 650px;
+    margin: 0 auto;
+    padding: 32px 28px;
+  }
+
+  .navbar-mobile-eyebrow {
+    display: block;
+    margin-bottom: 25px;
+    color: #a78652;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 2px;
+  }
+
+  .navbar-mobile-link {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+    padding: 17px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, .08);
+    color: #f8f6f2;
+    text-decoration: none;
+    font-family: Georgia, serif;
+    font-size: clamp(22px, 4vw, 30px);
+    transition:
+      color .25s,
+      padding-left .25s;
+  }
+
+  .navbar-mobile-link:hover {
+    color: #c5a46d;
+    padding-left: 8px;
+  }
+
+  .navbar-mobile-number {
+    color: #a78652;
+    font-family: Arial, sans-serif;
+    font-size: 11px;
+    letter-spacing: 1px;
+  }
+
+  .navbar-mobile-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 28px;
+    color: #c5a46d;
+    font-size: 10px;
+    letter-spacing: 2px;
+  }
+}
+
+/* Très petits écrans */
+
+@media (max-width: 400px) {
+  .navbar {
+    padding: 0 14px;
+    gap: 10px;
+  }
+
+  .navbar-logo {
+    gap: 7px;
+  }
+
+  .navbar-logo-image {
+    width: 40px;
+    height: 40px;
+  }
+
+  .navbar-logo-text span {
+    font-size: 11px;
+    letter-spacing: .7px;
   }
 
   .navbar-logo-text small {
     font-size: 7px;
+    letter-spacing: 1px;
   }
 
-  .navbar-links {
-    gap: 17px;
+  .navbar-actions {
+    gap: 7px;
+  }
+
+  .language-button {
+    min-width: 40px;
+    height: 36px;
+    padding: 0 7px;
+  }
+
+  .navbar-menu-toggle {
+    width: 38px;
+    height: 38px;
   }
 }
 
-/* =========================================
-   ACCESSIBILITÉ
-========================================= */
+/* Accessibilité */
 
 .navbar a:focus-visible,
-.language-button:focus-visible {
+.navbar button:focus-visible {
   outline: 2px solid #c5a46d;
   outline-offset: 4px;
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .navbar-logo-image,
+  .navbar-mobile-menu,
+  .navbar-mobile-link,
   .navbar-links a,
-  .navbar-links a::after,
   .language-button {
     transition: none;
   }

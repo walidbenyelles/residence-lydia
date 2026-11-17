@@ -8,25 +8,25 @@ const places = [
   {
     id: 1,
     category: 'heritage',
-    image: '/images/tlemcen/mechouar.jpg',
+    image: '/images/tlemcen/mechouar.webp',
     mapQuery: 'Palais El Mechouar Tlemcen Algérie',
   },
   {
     id: 2,
     category: 'panorama',
-    image: '/images/tlemcen/lalla-setti.jpg',
+    image: '/images/tlemcen/lalla-setti.webp',
     mapQuery: 'Plateau Lalla Setti Tlemcen Algérie',
   },
   {
     id: 3,
     category: 'nature',
-    image: '/images/tlemcen/beni-add.jpg',
+    image: '/images/tlemcen/beni-add.webp',
     mapQuery: 'Grottes de Beni Add Ain Fezza Algérie',
   },
   {
     id: 4,
     category: 'history',
-    image: '/images/tlemcen/mansourah.jpg',
+    image: '/images/tlemcen/mansourah.webp',
     mapQuery: 'Mansourah Tlemcen Algérie',
   },
 ]

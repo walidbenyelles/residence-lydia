@@ -248,3 +248,18 @@
     transform: none;
   }
 }
+
+@media (max-width: 420px) {
+  .apartment-info {
+    padding: 20px;
+  }
+
+  .apartment-info h3 {
+    font-size: 25px;
+  }
+
+  .apartment-rating {
+    gap: 5px;
+    font-size: 12px;
+  }
+}

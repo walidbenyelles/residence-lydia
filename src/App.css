@@ -12,3 +12,20 @@
   position: relative;
   z-index: 2;
 }
+
+/* Optimisation des sections sur mobile */
+
+@media (max-width: 768px) {
+  .page-content .hero {
+    height: 100svh;
+    min-height: 560px;
+  }
+
+  .page-content .apartments {
+    position: relative;
+  }
+
+  .tlemcen-hero {
+    min-height: 100svh;
+  }
+}

@@ -53,6 +53,7 @@ function Apartments() {
                     src={apartment.images[0]}
                     alt={`${t.apartments.name} ${apartment.id}`}
                     loading="lazy"
+                    decoding="async"
                   />
 
                   <span className="apartment-image-label">

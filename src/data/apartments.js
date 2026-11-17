@@ -35,7 +35,7 @@ export const apartments = [
       'https://fr.airbnb.be/rooms/1811350676909420423',
 
     images: [
-      '/images/apartments/apartment-1/photo-1.jpg',
+      '/images/apartments/apartment-1/photo-1.webp',
     ],
 
     capacity: 5,
@@ -71,7 +71,7 @@ export const apartments = [
       'https://www.airbnb.fr/rooms/1360322649669779996',
 
     images: [
-      '/images/apartments/apartment-2/photo-1.jpg',
+      '/images/apartments/apartment-2/photo-1.webp',
     ],
 
     capacity: 5,
@@ -111,7 +111,7 @@ export const apartments = [
       'https://www.airbnb.fr/rooms/1202441066113094720',
 
     images: [
-      '/images/apartments/apartment-3/photo-1.jpg',
+      '/images/apartments/apartment-3/photo-1.webp',
     ],
 
     capacity: 5,

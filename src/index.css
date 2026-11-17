@@ -17,3 +17,48 @@ html {
 body {
   margin: 0;
 }
+
+/* Responsive global */
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 100px;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  overflow-x: clip;
+}
+
+img, video {
+  max-width: 100%;
+}
+
+button, a {
+  -webkit-tap-highlight-color: transparent;
+}
+
+@media (max-width: 600px) {
+  html {
+    scroll-padding-top: 130px;
+  }
+
+  h1, h2, h3 {
+    overflow-wrap: break-word;
+  }
+
+  button, a {
+    touch-action: manipulation;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
