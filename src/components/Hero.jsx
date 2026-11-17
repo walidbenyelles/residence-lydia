@@ -1,28 +1,32 @@
+
+import { useLanguage } from '../i18n/LanguageContext'
 import './Hero.css'
 
 function Hero() {
+  const { t } = useLanguage()
+
   return (
     <section id="accueil" className="hero">
       <div className="hero-overlay"></div>
 
       <div className="hero-content">
         <span className="hero-subtitle">
-          BIENVENUE À TLEMCEN
+          {t.hero.subtitle}
         </span>
 
         <h1>
-          Un beau voyage mérite
+          {t.hero.title}
           <br />
-          <em>un séjour à sa hauteur.</em>
+          <em>{t.hero.titleHighlight}</em>
         </h1>
 
-        <p>
-          Découvrez Résidence Lydia, votre adresse
-          pour un séjour confortable à Tlemcen.
-        </p>
+        <p>{t.hero.description}</p>
 
-        <a href="#appartements" className="hero-button">
-          Découvrir nos appartements
+        <a
+          href="#appartements"
+          className="hero-button"
+        >
+          {t.hero.button}
         </a>
       </div>
     </section>

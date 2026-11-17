@@ -1,15 +1,25 @@
 
 import { useEffect, useRef, useState } from 'react'
+import { useLanguage } from '../i18n/LanguageContext'
 import './PhotoGallery.css'
 
-function PhotoGallery({ images, initialIndex = 0, onClose }) {
-  const [currentIndex, setCurrentIndex] = useState(initialIndex)
+function PhotoGallery({
+  images,
+  initialIndex = 0,
+  onClose,
+}) {
+  const { t } = useLanguage()
+
+  const [currentIndex, setCurrentIndex] =
+    useState(initialIndex)
 
   const touchStartX = useRef(null)
   const lastScrollTime = useRef(0)
 
   const next = () => {
-    setCurrentIndex(index => (index + 1) % images.length)
+    setCurrentIndex(index =>
+      (index + 1) % images.length
+    )
   }
 
   const previous = () => {
@@ -18,12 +28,13 @@ function PhotoGallery({ images, initialIndex = 0, onClose }) {
     )
   }
 
-  // Navigation au clavier
   useEffect(() => {
     function handleKeyDown(event) {
       if (event.key === 'ArrowRight') {
         event.preventDefault()
-        setCurrentIndex(index => (index + 1) % images.length)
+        setCurrentIndex(index =>
+          (index + 1) % images.length
+        )
       }
 
       if (event.key === 'ArrowLeft') {
@@ -37,22 +48,25 @@ function PhotoGallery({ images, initialIndex = 0, onClose }) {
     window.addEventListener('keydown', handleKeyDown)
 
     return () => {
-      window.removeEventListener('keydown', handleKeyDown)
+      window.removeEventListener(
+        'keydown',
+        handleKeyDown
+      )
     }
   }, [images.length])
 
-  // Navigation avec la molette
   function handleWheel(event) {
     if (images.length <= 1) return
 
-    event.preventDefault()
-
     const now = Date.now()
 
-    // Évite de défiler trop vite
-    if (now - lastScrollTime.current < 450) return
+    if (now - lastScrollTime.current < 450) {
+      return
+    }
 
-    if (Math.abs(event.deltaY) < 10) return
+    if (Math.abs(event.deltaY) < 10) {
+      return
+    }
 
     lastScrollTime.current = now
 
@@ -63,16 +77,19 @@ function PhotoGallery({ images, initialIndex = 0, onClose }) {
     }
   }
 
-  // Navigation tactile
   function handleTouchStart(event) {
-    touchStartX.current = event.touches[0].clientX
+    touchStartX.current =
+      event.touches[0].clientX
   }
 
   function handleTouchEnd(event) {
     if (touchStartX.current === null) return
 
-    const touchEndX = event.changedTouches[0].clientX
-    const distance = touchStartX.current - touchEndX
+    const touchEndX =
+      event.changedTouches[0].clientX
+
+    const distance =
+      touchStartX.current - touchEndX
 
     if (Math.abs(distance) > 50) {
       if (distance > 0) {
@@ -92,7 +109,7 @@ function PhotoGallery({ images, initialIndex = 0, onClose }) {
       className="photo-gallery"
       role="dialog"
       aria-modal="true"
-      aria-label="Galerie photos"
+      aria-label={t.gallery.title}
       onMouseDown={(event) => {
         if (event.target === event.currentTarget) {
           onClose()
@@ -102,54 +119,51 @@ function PhotoGallery({ images, initialIndex = 0, onClose }) {
       onTouchStart={handleTouchStart}
       onTouchEnd={handleTouchEnd}
     >
-
       <button
+        type="button"
         className="gallery-close"
         onClick={onClose}
-        aria-label="Fermer la galerie"
+        aria-label={t.gallery.close}
       >
         ×
       </button>
 
       <button
+        type="button"
         className="gallery-arrow"
         onClick={previous}
-        aria-label="Photo précédente"
+        aria-label={t.gallery.previous}
       >
         ‹
       </button>
 
-      
-<div
-  className="gallery-image-container"
-  onMouseDown={(event) => {
-    if (
-      event.target === event.currentTarget
-    ) {
-      onClose()
-    }
-  }}
->
-  <img
-    src={images[currentIndex]}
-    alt={`Photo ${currentIndex + 1}`}
-    draggable="false"
-  />
+      <div
+        className="gallery-image-container"
+        onMouseDown={(event) => {
+          if (event.target === event.currentTarget) {
+            onClose()
+          }
+        }}
+      >
+        <img
+          src={images[currentIndex]}
+          alt={`${t.gallery.photo} ${currentIndex + 1}`}
+          draggable="false"
+        />
 
-  <span className="gallery-counter">
-    {currentIndex + 1} / {images.length}
-  </span>
-</div>
-
+        <span className="gallery-counter">
+          {currentIndex + 1} / {images.length}
+        </span>
+      </div>
 
       <button
+        type="button"
         className="gallery-arrow"
         onClick={next}
-        aria-label="Photo suivante"
+        aria-label={t.gallery.next}
       >
         ›
       </button>
-
     </div>
   )
 }

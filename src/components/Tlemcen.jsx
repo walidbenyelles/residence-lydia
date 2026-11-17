@@ -1,49 +1,46 @@
 
 import { useState } from 'react'
+import { useLanguage } from '../i18n/LanguageContext'
 import Reveal from './Reveal'
 import './Tlemcen.css'
 
 const places = [
   {
     id: 1,
-    name: 'Palais El Mechouar',
-    category: 'PATRIMOINE',
-    description:
-      "Découvrez l'un des monuments les plus emblématiques de l'histoire de Tlemcen.",
+    category: 'heritage',
     image: '/images/tlemcen/mechouar.jpg',
     mapQuery: 'Palais El Mechouar Tlemcen Algérie',
   },
   {
     id: 2,
-    name: 'Plateau de Lalla Setti',
-    category: 'PANORAMA',
-    description:
-      'Prenez de la hauteur et admirez les paysages de Tlemcen et de ses environs.',
+    category: 'panorama',
     image: '/images/tlemcen/lalla-setti.jpg',
     mapQuery: 'Plateau Lalla Setti Tlemcen Algérie',
   },
   {
     id: 3,
-    name: 'Grottes de Béni Add',
-    category: 'NATURE',
-    description:
-      'Explorez un univers souterrain aux formations rocheuses remarquables.',
+    category: 'nature',
     image: '/images/tlemcen/beni-add.jpg',
     mapQuery: 'Grottes de Beni Add Ain Fezza Algérie',
   },
   {
     id: 4,
-    name: 'Mansourah',
-    category: 'HISTOIRE',
-    description:
-      'Découvrez les vestiges historiques et le célèbre minaret de Mansourah.',
+    category: 'history',
     image: '/images/tlemcen/mansourah.jpg',
     mapQuery: 'Mansourah Tlemcen Algérie',
   },
 ]
 
 function TouristCard({ place }) {
-  const [imageAvailable, setImageAvailable] = useState(true)
+  const { t } = useLanguage()
+  const [imageAvailable, setImageAvailable] =
+    useState(true)
+
+  const translatedPlace =
+    t.tlemcen.places[place.id - 1]
+
+  const category =
+    t.tlemcen.categories[place.category]
 
   const mapsUrl =
     'https://www.google.com/maps/search/?api=1&query=' +
@@ -52,35 +49,39 @@ function TouristCard({ place }) {
   return (
     <article className="tourist-card">
       <div className="tourist-card-media">
+
         {imageAvailable ? (
           <img
             src={place.image}
-            alt={place.name}
+            alt={translatedPlace.name}
             loading="lazy"
             onError={() => setImageAvailable(false)}
           />
         ) : (
           <div className="tourist-image-placeholder">
             <span>RÉSIDENCE LYDIA</span>
+
             <strong>
               {String(place.id).padStart(2, '0')}
             </strong>
-            <span>{place.category}</span>
+
+            <span>{category}</span>
           </div>
         )}
 
         <span className="tourist-card-number">
           {String(place.id).padStart(2, '0')}
         </span>
+
       </div>
 
       <div className="tourist-card-info">
         <span className="tourist-card-category">
-          {place.category}
+          {category}
         </span>
 
-        <h3>{place.name}</h3>
-        <p>{place.description}</p>
+        <h3>{translatedPlace.name}</h3>
+        <p>{translatedPlace.description}</p>
 
         <a
           href={mapsUrl}
@@ -88,7 +89,7 @@ function TouristCard({ place }) {
           rel="noopener noreferrer"
           className="tourist-card-link"
         >
-          <span>Découvrir le lieu</span>
+          <span>{t.tlemcen.discover}</span>
           <span aria-hidden="true">↗</span>
         </a>
       </div>
@@ -97,77 +98,71 @@ function TouristCard({ place }) {
 }
 
 function Tlemcen() {
+  const { t } = useLanguage()
+  const content = t.tlemcen
+
   return (
-    <section id="tlemcen" className="tlemcen-section">
+    <section
+      id="tlemcen"
+      className="tlemcen-section"
+    >
 
-      {/* PANORAMA IMMERSIF */}
-
+      {/* Panorama */}
       <div className="tlemcen-hero">
         <div className="tlemcen-hero-shade" />
 
         <div className="tlemcen-hero-content">
           <Reveal>
             <div className="tlemcen-hero-text">
-
               <span className="tlemcen-overline">
-                DÉCOUVREZ L'OUEST ALGÉRIEN
+                {content.heroSubtitle}
               </span>
 
               <h2>
-                Tlemcen,
+                {content.heroTitle}
                 <br />
-                <em>l'art de voyager.</em>
+                <em>{content.heroHighlight}</em>
               </h2>
 
-              <p>
-                Une ville où l'histoire rencontre
-                la beauté des paysages.
-                Découvrez une destination riche
-                en patrimoine, en culture
-                et en traditions.
-              </p>
+              <p>{content.heroDescription}</p>
 
               <a
                 href="#tlemcen-places"
                 className="tlemcen-hero-link"
               >
-                Explorer la ville
+                {content.explore}
                 <span aria-hidden="true">↓</span>
               </a>
-
             </div>
           </Reveal>
         </div>
 
         <div className="tlemcen-hero-bottom">
-          <span>TLEMCEN · ALGÉRIE</span>
-          <span>DÉFILER POUR EXPLORER ↓</span>
+          <span>{content.location}</span>
+          <span>{content.scroll} ↓</span>
         </div>
       </div>
 
-      {/* DESTINATIONS */}
-
-      <div id="tlemcen-places" className="tlemcen-places">
+      {/* Destinations */}
+      <div
+        id="tlemcen-places"
+        className="tlemcen-places"
+      >
         <div className="tlemcen-container">
 
           <Reveal>
             <header className="tlemcen-heading">
               <span className="tlemcen-section-label">
-                EXPLOREZ LES ENVIRONS
+                {content.sectionSubtitle}
               </span>
 
               <h2>
-                Les trésors
+                {content.sectionTitle}
                 <br />
-                <em>de Tlemcen.</em>
+                <em>{content.sectionHighlight}</em>
               </h2>
 
-              <p>
-                Des monuments chargés d'histoire
-                aux merveilles naturelles,
-                laissez-vous inspirer par les
-                plus beaux lieux de la région.
-              </p>
+              <p>{content.sectionDescription}</p>
             </header>
           </Reveal>
 
@@ -181,30 +176,6 @@ function Tlemcen() {
               </Reveal>
             ))}
           </div>
-
-          {/* MESSAGE FINAL */}
-
-          <Reveal>
-            <div className="tlemcen-ending">
-              <span>VOTRE ESCAPADE COMMENCE ICI</span>
-
-              <h2>
-                Explorez la ville.
-                <br />
-                <em>Séjournez chez nous.</em>
-              </h2>
-
-              <p>
-                Profitez de votre séjour à Résidence
-                Lydia pour découvrir Tlemcen.
-              </p>
-
-              <a href="#appartements">
-                Découvrir nos appartements
-                <span aria-hidden="true">↗</span>
-              </a>
-            </div>
-          </Reveal>
 
         </div>
       </div>
