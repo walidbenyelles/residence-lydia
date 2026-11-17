@@ -1,0 +1,139 @@
+
+.photo-gallery {
+  position: fixed;
+  inset: 0;
+  z-index: 2000;
+  background: rgba(10, 10, 10, 0.98);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+  padding: 30px;
+}
+
+.gallery-image-container {
+  position: relative;
+  flex: 1;
+  min-width: 0;
+  height: 90vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.gallery-image-container img {
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+}
+
+.gallery-close {
+  position: absolute;
+  top: 20px;
+  right: 25px;
+  z-index: 2;
+  border: none;
+  background: transparent;
+  color: white;
+  font-size: 38px;
+  cursor: pointer;
+}
+
+.gallery-arrow {
+  flex-shrink: 0;
+  width: 52px;
+  height: 52px;
+  border: 1px solid #c5a46d;
+  border-radius: 50%;
+  background: transparent;
+  color: white;
+  font-size: 34px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.gallery-arrow:hover {
+  background: #c5a46d;
+  color: #171717;
+}
+
+.gallery-counter {
+  position: absolute;
+  bottom: 15px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: white;
+  font-size: 14px;
+  letter-spacing: 2px;
+}
+
+@media (max-width: 600px) {
+  .photo-gallery {
+    padding: 12px;
+    gap: 6px;
+  }
+
+  .gallery-arrow {
+    width: 35px;
+    height: 35px;
+    font-size: 25px;
+  }
+
+  .gallery-image-container {
+    height: 80vh;
+  }
+}
+
+/* Expérience utilisateur améliorée */
+
+.photo-gallery {
+  user-select: none;
+  overscroll-behavior: contain;
+  touch-action: pan-y;
+}
+
+.gallery-image-container {
+  cursor: default;
+}
+
+.gallery-image-container img {
+  cursor: zoom-out;
+  -webkit-user-drag: none;
+}
+
+/* Navigation plus agréable */
+
+.gallery-arrow {
+  transition:
+    background 0.3s ease,
+    transform 0.3s ease;
+}
+
+.gallery-arrow:hover {
+  transform: scale(1.08);
+}
+
+.gallery-close {
+  transition:
+    color 0.3s ease,
+    transform 0.3s ease;
+}
+
+.gallery-close:hover {
+  color: #c5a46d;
+  transform: rotate(90deg);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .gallery-arrow,
+  .gallery-close {
+    transition: none;
+  }
+
+  .gallery-arrow:hover,
+  .gallery-close:hover {
+    transform: none;
+  }
+}
