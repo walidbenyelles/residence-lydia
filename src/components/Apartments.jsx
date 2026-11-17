@@ -1,67 +1,28 @@
 
 import { useState } from 'react'
+import { Star } from 'lucide-react'
+
+import { apartments } from '../data/apartments'
 import { useLanguage } from '../i18n/LanguageContext'
+
 import Reveal from './Reveal'
 import ApartmentModal from './ApartmentModal'
 import './Apartments.css'
 
-const apartments = [
-  {
-    id: 1,
-    name: 'Appartement 1',
-    images: [
-      '/images/apartments/apartment-1/photo-1.jpg',
-      // Ajoute tes autres photos ici
-    ],
-    description: '',
-    capacity: 6,
-    bedrooms: 3,
-    amenities: [
-      'wifi',
-      'clim',
-      'kitchen',
-      'balcony',
-      'tv',
-      'heating',
-      'washer',
-      'parking',
-    ],
-    airbnbUrl:
-      'https://www.airbnb.fr/rooms/1202441066113094720',
-    whatsappUrl: '',
-  },
-  {
-    id: 2,
-    name: 'Appartement 2',
-    images: [
-      '/images/apartments/apartment-2/photo-1.jpg',
-    ],
-    description: '',
-    capacity: null,
-    bedrooms: null,
-    amenities: [],
-    airbnbUrl: '',
-    whatsappUrl: '',
-  },
-  {
-    id: 3,
-    name: 'Appartement 3',
-    images: [
-      '/images/apartments/apartment-3/photo-1.jpg',
-    ],
-    description: '',
-    capacity: null,
-    bedrooms: null,
-    amenities: [],
-    airbnbUrl: '',
-    whatsappUrl: '',
-  },
-]
-
 function Apartments() {
-  const { t } = useLanguage()
+  const { language, t } = useLanguage()
+
   const [selectedApartment, setSelectedApartment] =
     useState(null)
+
+  const formatRating = value =>
+    value.toLocaleString(
+      language === 'fr' ? 'fr-FR' : 'en-US',
+      {
+        minimumFractionDigits: 2,
+        maximumFractionDigits: 2,
+      }
+    )
 
   return (
     <>
@@ -107,6 +68,49 @@ function Apartments() {
                   <h3>
                     {t.apartments.name} {apartment.id}
                   </h3>
+
+                  <div className="apartment-facts">
+                    <span>
+                      {apartment.capacity}{' '}
+                      {t.modal.guests.toLowerCase()}
+                    </span>
+
+                    <span>·</span>
+
+                    <span>
+                      {apartment.bedrooms}{' '}
+                      {t.modal.bedrooms.toLowerCase()}
+                    </span>
+                  </div>
+
+                  <div className="apartment-rating">
+                    {apartment.rating != null ? (
+                      <>
+                        <Star
+                          size={17}
+                          fill="currentColor"
+                          aria-hidden="true"
+                        />
+
+                        <strong>
+                          {formatRating(apartment.rating)}
+                        </strong>
+
+                        <span>
+                          / 5 · {apartment.reviewCount}{' '}
+                          {t.reviews.count}
+                        </span>
+
+                        <span className="apartment-rating-source">
+                          Airbnb
+                        </span>
+                      </>
+                    ) : (
+                      <span className="apartment-new-badge">
+                        {t.reviews.newListing}
+                      </span>
+                    )}
+                  </div>
 
                   <div className="apartment-divider" />
 

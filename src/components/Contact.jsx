@@ -139,7 +139,7 @@ function Contact() {
             )}
 
             <a
-              href="https://www.google.com/maps/search/?api=1&query=Sidi+Said+Tlemcen+Algerie"
+              href="https://maps.app.goo.gl/b4phijvF37wdZQpm7"
               target="_blank"
               rel="noopener noreferrer"
             >

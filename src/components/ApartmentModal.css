@@ -4,24 +4,24 @@
   inset: 0;
   z-index: 1000;
   display: flex;
-  align-items: center;
   justify-content: center;
+  align-items: center;
   padding: 20px;
-  background: rgba(0, 0, 0, 0.75);
+  background: rgba(0, 0, 0, .75);
   backdrop-filter: blur(8px);
-  animation: modalFade 0.3s ease;
+  animation: modalFade .3s ease;
 }
 
 .modal-content {
   position: relative;
   width: 100%;
-  max-width: 680px;
+  max-width: 780px;
   max-height: 90vh;
   overflow-y: auto;
-  background: #f8f6f2;
+  background: #f7f5f0;
   color: #171717;
   border-radius: 16px;
-  animation: modalSlide 0.4s ease;
+  animation: modalSlide .4s ease;
 }
 
 .modal-close {
@@ -39,183 +39,85 @@
   cursor: pointer;
 }
 
-.modal-image {
+.luxury-gallery-preview {
+  background: #f7f5f0;
+}
+
+.luxury-gallery-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 6px;
+  height: 350px;
+  overflow: hidden;
+}
+
+.luxury-gallery-grid button {
   display: block;
   width: 100%;
-  height: 330px;
-  object-fit: cover;
-}
-
-.modal-body {
-  padding: 35px;
-}
-
-.modal-subtitle {
-  color: #a78652;
-  font-size: 11px;
-  letter-spacing: 2px;
-}
-
-.modal-body h2 {
-  font-family: Georgia, serif;
-  font-size: 36px;
-  font-weight: 400;
-  margin: 12px 0 20px;
-}
-
-.modal-body p {
-  color: #666;
-  line-height: 1.8;
-}
-
-.modal-actions {
-  display: flex;
-  gap: 12px;
-  margin-top: 30px;
-}
-
-.modal-btn {
-  flex: 1;
-  padding: 15px;
-  text-align: center;
-  text-decoration: none;
-  font-size: 13px;
-  font-weight: 600;
-  border-radius: 5px;
-}
-
-.modal-btn.primary {
-  background: #c5a46d;
-  color: #171717;
-}
-
-.modal-btn.secondary {
-  border: 1px solid #c5a46d;
-  color: #171717;
-}
-
-.modal-main-photo {
-  display: block;
-  position: relative;
-  width: 100%;
+  height: 100%;
+  min-height: 0;
   padding: 0;
-  border: none;
-  background: transparent;
+  border: 0;
+  background: #e8e1d6;
+  overflow: hidden;
   cursor: zoom-in;
 }
 
-.modal-main-photo img {
+.luxury-gallery-grid img {
   display: block;
-  width: 100%;
-  height: 330px;
-  object-fit: cover;
-}
-
-.modal-main-photo span {
-  position: absolute;
-  bottom: 15px;
-  right: 15px;
-  padding: 12px 18px;
-  background: rgba(20, 20, 20, 0.85);
-  color: white;
-  border-radius: 5px;
-  font-size: 12px;
-}
-
-.modal-thumbnails {
-  display: flex;
-  gap: 8px;
-  overflow-x: auto;
-  padding: 10px;
-}
-
-.modal-thumbnails button {
-  flex: 0 0 100px;
-  height: 75px;
-  padding: 0;
-  border: none;
-  cursor: pointer;
-  overflow: hidden;
-  border-radius: 5px;
-}
-
-.modal-thumbnails img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  transition: transform .5s ease;
 }
 
-/* Capacité et chambres */
+.luxury-gallery-grid button:hover img {
+  transform: scale(1.06);
+}
 
-.modal-details {
+.luxury-gallery-side {
+  display: grid;
+  grid-template-rows: repeat(2, minmax(0, 1fr));
+  gap: 6px;
+  min-height: 0;
+}
+
+.luxury-gallery-side button:only-child {
+  grid-row: 1 / -1;
+}
+
+.luxury-gallery-main:only-child {
+  grid-column: 1 / -1;
+}
+
+.luxury-gallery-footer {
   display: flex;
-  flex-wrap: wrap;
-  gap: 24px;
-  margin: 20px 0;
-  padding-bottom: 22px;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 20px 30px;
   border-bottom: 1px solid #e8e1d6;
 }
 
-.modal-detail {
-  display: flex;
-  align-items: center;
-  gap: 9px;
-  color: #444;
-  font-size: 14px;
+.luxury-gallery-footer > span {
+  color: #a78652;
+  font-size: 10px;
+  letter-spacing: 1.5px;
 }
 
-.modal-detail span:first-child {
-  font-size: 21px;
-}
-
-/* Description */
-
-.modal-description {
-  color: #666;
-  line-height: 1.8;
-  margin-bottom: 25px;
-}
-
-/* Équipements */
-
-.modal-amenities {
-  margin-top: 28px;
-  padding-top: 25px;
-  border-top: 1px solid #e8e1d6;
-}
-
-.modal-amenities h3 {
-  font-family: Georgia, serif;
-  font-size: 23px;
-  font-weight: 400;
+.luxury-gallery-footer button {
+  background: transparent;
+  border: none;
   color: #171717;
-  margin: 0 0 24px;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
 }
 
-.amenities-grid {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 20px;
+.gallery-total {
+  margin-left: 5px;
+  color: #a78652;
 }
-
-.amenity-item {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  color: #444;
-  font-size: 14px;
-}
-
-.amenity-icon {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 32px;
-  height: 32px;
-  font-size: 21px;
-}
-
-/* Luxury apartment details */
 
 .luxury-body {
   padding: 42px;
@@ -240,25 +142,41 @@
 
 .luxury-header h2 {
   margin: 16px 0 8px;
-  font-family: Georgia, serif;
-  font-size: clamp(30px, 5vw, 43px);
-  font-weight: 400;
+  font: 400 clamp(30px, 5vw, 43px)/1.15 Georgia, serif;
   color: #1c1c1c;
 }
 
 .luxury-tagline {
   color: #81786e;
-  font-family: Georgia, serif;
-  font-size: 15px;
-  font-style: italic;
+  font: italic 15px Georgia, serif;
 }
 
-/* Statistiques */
+.luxury-rating {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 9px;
+  margin: 15px 0 18px;
+}
+
+.luxury-rating svg {
+  color: #c5a46d;
+}
+
+.luxury-rating strong {
+  color: #171717;
+  font-size: 20px;
+}
+
+.luxury-rating span {
+  color: #81786e;
+  font-size: 13px;
+}
 
 .luxury-stats {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 14px;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 10px;
   margin-top: 30px;
 }
 
@@ -267,8 +185,8 @@
   flex-direction: column;
   align-items: flex-start;
   gap: 12px;
-  padding: 25px;
-  background: white;
+  padding: 19px;
+  background: #fff;
   border: 1px solid #eee9e1;
   border-radius: 8px;
 }
@@ -278,19 +196,15 @@
 }
 
 .luxury-stat strong {
-  font-family: Georgia, serif;
-  font-size: 35px;
-  font-weight: 400;
+  font: 400 31px Georgia, serif;
   color: #202020;
 }
 
 .luxury-stat span {
-  font-size: 10px;
-  letter-spacing: 2px;
+  font-size: 9px;
+  letter-spacing: 1px;
   color: #81786e;
 }
-
-/* Présentation */
 
 .luxury-intro {
   margin-top: 38px;
@@ -298,9 +212,7 @@
 
 .luxury-intro h3 {
   margin: 0 0 14px;
-  font-family: Georgia, serif;
-  font-size: 27px;
-  font-weight: 400;
+  font: 400 27px Georgia, serif;
   color: #202020;
 }
 
@@ -310,9 +222,26 @@
   line-height: 1.9;
 }
 
-/* Équipements */
+.luxury-additional-info {
+  margin-top: 22px;
+  display: grid;
+  gap: 12px;
+  color: #625b52;
+  font-size: 13px;
+}
 
-.luxury-amenities {
+.luxury-additional-info > div {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.luxury-additional-info svg {
+  color: #a78652;
+}
+
+.luxury-amenities,
+.luxury-rules {
   margin-top: 38px;
 }
 
@@ -325,9 +254,7 @@
 
 .luxury-section-heading h3 {
   margin: 12px 0 24px;
-  font-family: Georgia, serif;
-  font-size: 25px;
-  font-weight: 400;
+  font: 400 25px Georgia, serif;
   color: #202020;
 }
 
@@ -347,8 +274,8 @@
   border: 1px solid #eee9e1;
   border-radius: 7px;
   transition:
-    border-color 0.3s ease,
-    transform 0.3s ease;
+    border-color .3s,
+    transform .3s;
 }
 
 .luxury-amenity:hover {
@@ -366,7 +293,17 @@
   font-size: 13px;
 }
 
-/* Réservation */
+.luxury-rules ul {
+  margin: 0;
+  padding-left: 22px;
+  color: #625b52;
+  font-size: 13px;
+  line-height: 2;
+}
+
+.luxury-rules li::marker {
+  color: #a78652;
+}
 
 .luxury-booking {
   display: flex;
@@ -386,13 +323,13 @@
 
 .luxury-booking-link {
   display: flex;
-  justify-content: space-between;
   align-items: center;
+  justify-content: space-between;
   gap: 12px;
   color: #fff;
   font-size: 16px;
   text-decoration: none;
-  transition: color 0.3s;
+  transition: color .3s;
 }
 
 .luxury-booking-link svg {
@@ -412,92 +349,41 @@
   text-decoration: none;
 }
 
-/* Galerie premium */
-
-.luxury-gallery-preview {
-  background: #f7f5f0;
+.airbnb-data-note {
+  color: #857c70;
+  font-size: 11px;
+  line-height: 1.7;
+  margin: 18px 0 0;
 }
 
-.luxury-gallery-grid {
-  display: grid;
-  grid-template-columns: 2fr 1fr;
-  gap: 6px;
-  height: 350px;
-  overflow: hidden;
+@keyframes modalFade {
+  from { opacity: 0; }
+  to { opacity: 1; }
 }
 
-.luxury-gallery-grid button {
-  display: block;
-  width: 100%;
-  height: 100%;
-  min-height: 0;
-  padding: 0;
-  border: none;
-  background: #e8e1d6;
-  overflow: hidden;
-  cursor: zoom-in;
+@keyframes modalSlide {
+  from {
+    opacity: 0;
+    transform: translateY(30px) scale(.98);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
 }
 
-.luxury-gallery-grid img {
-  display: block;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: transform 0.5s ease;
+@media (max-width: 700px) {
+  .luxury-stats {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
 }
-
-.luxury-gallery-grid button:hover img {
-  transform: scale(1.06);
-}
-
-.luxury-gallery-side {
-  display: grid;
-  grid-template-rows: repeat(2, minmax(0, 1fr));
-  gap: 6px;
-  min-height: 0;
-}
-
-.luxury-gallery-side button:only-child {
-  grid-row: 1 / -1;
-}
-
-.luxury-gallery-footer {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 12px;
-  padding: 20px 30px;
-  border-bottom: 1px solid #e8e1d6;
-}
-
-.luxury-gallery-footer > span {
-  color: #a78652;
-  font-size: 10px;
-  letter-spacing: 1.5px;
-}
-
-.luxury-gallery-footer button {
-  border: none;
-  background: transparent;
-  color: #171717;
-  font-size: 12px;
-  font-weight: 600;
-  cursor: pointer;
-}
-
-.gallery-total {
-  margin-left: 5px;
-  color: #a78652;
-}
-
-/* Si une seule photo est disponible */
-.luxury-gallery-main:only-child {
-  grid-column: 1 / -1;
-}
-
-/* Responsive */
 
 @media (max-width: 600px) {
+  .modal-overlay {
+    padding: 10px;
+  }
+
   .luxury-gallery-grid {
     height: 270px;
     grid-template-columns: 1fr;
@@ -509,30 +395,13 @@
 
   .luxury-gallery-footer {
     padding: 16px 20px;
+    justify-content: flex-end;
   }
 
   .luxury-gallery-footer > span {
     display: none;
   }
 
-  .luxury-gallery-footer {
-    justify-content: flex-end;
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .luxury-gallery-grid img {
-    transition: none;
-  }
-
-  .luxury-gallery-grid button:hover img {
-    transform: none;
-  }
-}
-
-/* Mobile */
-
-@media (max-width: 600px) {
   .luxury-body {
     padding: 24px;
   }
@@ -550,8 +419,8 @@
   }
 
   .luxury-amenity {
-    padding: 13px 10px;
     gap: 8px;
+    padding: 13px 10px;
   }
 
   .luxury-amenity span {
@@ -564,65 +433,18 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
+  .modal-overlay,
+  .modal-content {
+    animation: none;
+  }
+
+  .luxury-gallery-grid img,
   .luxury-amenity {
     transition: none;
   }
 
+  .luxury-gallery-grid button:hover img,
   .luxury-amenity:hover {
     transform: none;
-  }
-}
-
-@media (max-width: 480px) {
-  .amenities-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .modal-details {
-    gap: 14px;
-  }
-}
-
-@media (max-width: 600px) {
-  .modal-main-photo img {
-    height: 230px;
-  }
-}
-
-
-@keyframes modalFade {
-  from { opacity: 0; }
-  to { opacity: 1; }
-}
-
-@keyframes modalSlide {
-  from {
-    opacity: 0;
-    transform: translateY(30px) scale(0.98);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0) scale(1);
-  }
-}
-
-@media (max-width: 600px) {
-  .modal-image {
-    height: 230px;
-  }
-
-  .modal-body {
-    padding: 24px;
-  }
-
-  .modal-actions {
-    flex-direction: column;
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .modal-overlay,
-  .modal-content {
-    animation: none;
   }
 }

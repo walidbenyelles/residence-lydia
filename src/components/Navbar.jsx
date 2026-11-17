@@ -9,8 +9,8 @@ function Navbar() {
     <header className="navbar">
       <a href="#accueil" className="navbar-logo">
         <img
-          src="/images/favicon.svg"
-          alt="Résidence Lydia"
+          src="/images/logo.svg"
+          alt=""
           className="navbar-logo-image"
         />
 
@@ -22,20 +22,44 @@ function Navbar() {
 
       <nav
         className="navbar-links"
-        aria-label="Navigation principale"
+        aria-label={
+          language === 'fr'
+            ? 'Navigation principale'
+            : 'Main navigation'
+        }
       >
-        <a href="#accueil">{t.nav.home}</a>
-        <a href="#appartements">{t.nav.apartments}</a>
-        <a href="#apropos">{t.nav.about}</a>
-        <a href="#tlemcen">{t.nav.tlemcen}</a>
-        <a href="#contact">{t.nav.contact}</a>
+        <a href="#accueil">
+          {t.nav.home}
+        </a>
+
+        <a href="#appartements">
+          {t.nav.apartments}
+        </a>
+
+        <a href="#apropos">
+          {t.nav.about}
+        </a>
+
+        <a href="#avis">
+          {t.nav.reviews}
+        </a>
+
+        <a href="#tlemcen">
+          {t.nav.tlemcen}
+        </a>
+
+        <a href="#contact">
+          {t.nav.contact}
+        </a>
       </nav>
 
       <button
         type="button"
         className="language-button"
         onClick={() =>
-          setLanguage(language === 'fr' ? 'en' : 'fr')
+          setLanguage(
+            language === 'fr' ? 'en' : 'fr'
+          )
         }
         aria-label={
           language === 'fr'

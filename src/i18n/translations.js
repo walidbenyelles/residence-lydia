@@ -5,6 +5,7 @@ export const translations = {
       home: 'Accueil',
       apartments: 'Appartements',
       about: 'La résidence',
+      reviews: 'Avis clients',
       tlemcen: 'Découvrir Tlemcen',
       contact: 'Contact',
     },
@@ -33,11 +34,16 @@ export const translations = {
       tagline: 'Un espace à découvrir',
       guests: 'VOYAGEURS',
       bedrooms: 'CHAMBRES',
+      beds: 'LITS',
+      bathrooms: 'SALLES DE BAIN',
+      floor: 'Étage',
+      checkin: 'Arrivée à partir de',
+      checkout: 'Départ avant',
       introTitle: "L'art de se sentir chez soi.",
-      introDescription:
-        'Découvrez les prestations et équipements disponibles pour votre séjour.',
       amenitiesSubtitle: 'LES PRESTATIONS',
       amenitiesTitle: 'Tout pour votre confort',
+      important: 'INFORMATIONS IMPORTANTES',
+      houseRules: 'Règles du séjour',
       bookingSubtitle: 'VOTRE PROCHAIN SÉJOUR',
       airbnb: 'Réserver sur Airbnb',
       whatsapp: 'Contacter sur WhatsApp',
@@ -45,17 +51,37 @@ export const translations = {
       preview: "APERÇU DE L'APPARTEMENT",
       close: 'Fermer les détails',
       photo: 'Photo',
+      airbnbNote:
+        'Informations et évaluations issues des annonces Airbnb, relevées le 17/11/2026. Vérifiez les conditions actuelles sur Airbnb avant de réserver.',
     },
 
     amenities: {
       wifi: 'Wi-Fi',
       clim: 'Climatisation',
-      kitchen: 'Cuisine équipée',
-      balcony: 'Balcon',
-      tv: 'Télévision',
       heating: 'Chauffage',
+      kitchen: 'Cuisine équipée',
+      tv: 'Télévision',
       washer: 'Lave-linge',
+      streetParking: 'Stationnement gratuit dans la rue',
+      oven: 'Four',
+      microwave: 'Micro-ondes',
+      dishwasher: 'Lave-vaisselle',
+      coffeeMaker: 'Cafetière',
+      nespresso: 'Machine Nespresso',
+      towels: 'Serviettes',
+      iron: 'Fer et table à repasser',
+      crib: 'Lit bébé',
+      selfCheckin: 'Arrivée autonome',
+      balcony: 'Balcon',
       parking: 'Parking',
+    },
+
+    rules: {
+      noEvents: 'Événements interdits',
+      noSmoking: 'Logement non-fumeur',
+      noPets: 'Animaux interdits',
+      familyBooklet:
+        'Livret de famille demandé pour les couples',
     },
 
     gallery: {
@@ -66,6 +92,18 @@ export const translations = {
       photo: 'Photo',
     },
 
+    reviews: {
+      eyebrow: "L'EXPÉRIENCE LYDIA",
+      title: 'Les évaluations de nos voyageurs.',
+      subtitle:
+        'Notes publiées sur les annonces Airbnb des appartements.',
+      count: 'avis',
+      newListing: 'Nouvelle annonce sur Airbnb',
+      view: 'Voir les avis sur Airbnb',
+      sourceNote:
+        'Notes relevées le 17 novembre 2026 ; elles peuvent évoluer. Aucun témoignage individuel n’est reproduit ici.',
+    },
+
     about: {
       eyebrow: 'BIENVENUE À RÉSIDENCE LYDIA',
       title: 'Votre adresse',
@@ -74,6 +112,7 @@ export const translations = {
         "Située dans le quartier de Sidi Saïd, à proximité du centre-ville de Tlemcen, Résidence Lydia vous accueille dans l'un de ses trois appartements.",
       description2:
         'Que vous veniez pour découvrir la ville, retrouver vos proches ou profiter d’un séjour dans la région, découvrez nos hébergements et choisissez celui qui vous correspond.',
+
       features: [
         {
           title: 'Trois appartements',
@@ -91,6 +130,7 @@ export const translations = {
             'Un emplacement pratique pour découvrir Tlemcen et ses environs.',
         },
       ],
+
       locationSubtitle: 'NOTRE LOCALISATION',
       locationTitle: 'Au cœur de votre séjour.',
       location: 'Sidi Saïd, Tlemcen, Algérie',
@@ -112,12 +152,14 @@ export const translations = {
       sectionDescription:
         "Des monuments chargés d'histoire aux merveilles naturelles, laissez-vous inspirer par les plus beaux lieux de la région.",
       discover: 'Découvrir le lieu',
+
       categories: {
         heritage: 'PATRIMOINE',
         panorama: 'PANORAMA',
         nature: 'NATURE',
         history: 'HISTOIRE',
       },
+
       places: [
         {
           name: 'Palais El Mechouar',
@@ -170,6 +212,7 @@ export const translations = {
       home: 'Home',
       apartments: 'Apartments',
       about: 'Our Residence',
+      reviews: 'Guest Reviews',
       tlemcen: 'Explore Tlemcen',
       contact: 'Contact',
     },
@@ -198,11 +241,16 @@ export const translations = {
       tagline: 'A place to discover',
       guests: 'GUESTS',
       bedrooms: 'BEDROOMS',
+      beds: 'BEDS',
+      bathrooms: 'BATHROOMS',
+      floor: 'Floor',
+      checkin: 'Check-in from',
+      checkout: 'Check-out by',
       introTitle: 'The art of feeling at home.',
-      introDescription:
-        'Discover the amenities and facilities available for your stay.',
       amenitiesSubtitle: 'AMENITIES',
       amenitiesTitle: 'Everything for your comfort',
+      important: 'IMPORTANT INFORMATION',
+      houseRules: 'House rules',
       bookingSubtitle: 'YOUR NEXT STAY',
       airbnb: 'Book on Airbnb',
       whatsapp: 'Contact us on WhatsApp',
@@ -210,17 +258,37 @@ export const translations = {
       preview: 'APARTMENT PREVIEW',
       close: 'Close apartment details',
       photo: 'Photo',
+      airbnbNote:
+        'Details and ratings from Airbnb listings, checked on November 17, 2026. Verify current conditions on Airbnb before booking.',
     },
 
     amenities: {
       wifi: 'Wi-Fi',
       clim: 'Air conditioning',
-      kitchen: 'Equipped kitchen',
-      balcony: 'Balcony',
-      tv: 'Television',
       heating: 'Heating',
+      kitchen: 'Equipped kitchen',
+      tv: 'Television',
       washer: 'Washing machine',
+      streetParking: 'Free street parking',
+      oven: 'Oven',
+      microwave: 'Microwave',
+      dishwasher: 'Dishwasher',
+      coffeeMaker: 'Coffee maker',
+      nespresso: 'Nespresso machine',
+      towels: 'Towels',
+      iron: 'Iron and ironing board',
+      crib: 'Baby crib',
+      selfCheckin: 'Self check-in',
+      balcony: 'Balcony',
       parking: 'Parking',
+    },
+
+    rules: {
+      noEvents: 'No events',
+      noSmoking: 'No smoking',
+      noPets: 'No pets',
+      familyBooklet:
+        'Family record booklet required for couples',
     },
 
     gallery: {
@@ -231,6 +299,18 @@ export const translations = {
       photo: 'Photo',
     },
 
+    reviews: {
+      eyebrow: 'THE LYDIA EXPERIENCE',
+      title: 'What our guests rate.',
+      subtitle:
+        'Ratings published on the apartments’ Airbnb listings.',
+      count: 'reviews',
+      newListing: 'New listing on Airbnb',
+      view: 'Read reviews on Airbnb',
+      sourceNote:
+        'Ratings checked on November 17, 2026; they may change. No individual guest testimonials are reproduced here.',
+    },
+
     about: {
       eyebrow: 'WELCOME TO RÉSIDENCE LYDIA',
       title: 'Your place to stay',
@@ -239,6 +319,7 @@ export const translations = {
         'Located in the Sidi Saïd neighborhood, close to Tlemcen city center, Résidence Lydia welcomes you to one of its three apartments.',
       description2:
         'Whether you are visiting the city, spending time with loved ones, or exploring the region, discover our accommodations and choose the one that suits your stay.',
+
       features: [
         {
           title: 'Three apartments',
@@ -256,6 +337,7 @@ export const translations = {
             'A convenient location for exploring Tlemcen and its surroundings.',
         },
       ],
+
       locationSubtitle: 'OUR LOCATION',
       locationTitle: 'At the heart of your stay.',
       location: 'Sidi Saïd, Tlemcen, Algeria',
@@ -277,12 +359,14 @@ export const translations = {
       sectionDescription:
         'From historic monuments to natural wonders, discover some of the most remarkable places in the region.',
       discover: 'Explore this place',
+
       categories: {
         heritage: 'HERITAGE',
         panorama: 'PANORAMA',
         nature: 'NATURE',
         history: 'HISTORY',
       },
+
       places: [
         {
           name: 'El Mechouar Palace',
